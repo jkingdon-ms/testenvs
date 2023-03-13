@@ -20,24 +20,20 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     environment: test1
-    env:
-      SECRET_1: "${{ env.SECRET_1 }}"
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: echo "$SECRET_1"
+        run: echo "${{ env.SECRET_1 }}"
 
   test2:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     environment: test2
-    env:
-      SECRET_1: "${{ env.SECRET_1 }}"
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: echo "$SECRET_1"
+        run: echo "${{ env.SECRET_1 }}"
