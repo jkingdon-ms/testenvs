@@ -19,7 +19,8 @@ jobs:
   test1:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    environment: test1
+    environment:
+      name: test1
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -30,7 +31,8 @@ jobs:
   test2:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    environment: test2
+    environment:
+      name: test2
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
