@@ -49,7 +49,5 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Runs a single command using the runners shell
-      - name: Run a one-line script
-        env:
-          VAR_1: ${{ env.VAR_1 }}      
-        run: echo $VAR_1
+      - name: Run a one-line script   
+        run: echo "VAR_1=${{ env.VAR_1 }}"
