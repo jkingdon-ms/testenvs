@@ -25,12 +25,7 @@ jobs:
     steps:
       # Runs a single command using the runners shell
       - name: Run a one-line script   
-        run: |
-          echo ${{ secrets.SECRET_1 }}
-          echo ${{ secrets.SECRET_1 }} >> test.txt
-        
-      - name: Run tmate
-        uses: mxschmitt/action-tmate@v2        
+        run: echo ${{ secrets.SECRET_1 }}
 
   test2:
     # The type of runner that the job will run on
