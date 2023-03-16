@@ -1,1 +1,6 @@
-EXAMPLE_KEY_1=EXAMPLE_VALUE_1
+DB_HOST=example.com
+DB_USER=admin
+DB_PASSWORD=secret
+SMTP_HOST=smtp.gmail.com
+SMTP_USER=myuser@gmail.com
+SMTP_PASSWORD=mypassword
