@@ -22,15 +22,7 @@ jobs:
       uses: actions/checkout@v3
       
     - name: Set up environment variables
-      run: |
-        $filePath = "variables.txt"
-        $keyValuePairs = Get-Content $filePath | ConvertFrom-StringData
-        $keyValuePairs.GetEnumerator() | ForEach-Object {
-          $name = $_.Name
-          $value = $_.Value
-          Write-Host "Setting environment variable: $name=$value"
-          echo "$name=$value" | Out-File -FilePath $Env:GITHUB_ENV -Encoding utf8 -Append
-        }
+      run: ./extract-and-set-variables.ps1
         
     - name: Print environment variables
       run: |
