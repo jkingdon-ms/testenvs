@@ -1,6 +1,6 @@
 DB_HOST=example.com
 DB_USER=admin
-DB_PASSWORD=secret
 SMTP_HOST=smtp.gmail.com
 SMTP_USER=myuser@gmail.com
-SMTP_PASSWORD=mypassword
+NON_SECRET_THING=4
+OTHER_NON_SECRET_THING=1
