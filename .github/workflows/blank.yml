@@ -15,25 +15,26 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  test1:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
-    environment: test1
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
+  extract-and-set-variables:
+    runs-on: windows-latest
     steps:
-      # Runs a single command using the runners shell
-      - name: Run a one-line script   
-        run: echo ${{ secrets.SECRET_1 }}
-
-  test2:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
-    environment: test2
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Runs a single command using the runners shell
-      - name: Run a one-line script 
-        run: echo ${{ secrets.SECRET_1 }}
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    - name: Install PowerShell
+      uses: microsoft/setup-powershell@v1
+      
+    - name: Set up environment variables
+      run: |
+        $filePath = "variables.txt"
+        $keyValuePairs = Get-Content $filePath | ConvertFrom-StringData
+        $keyValuePairs.GetEnumerator() | ForEach-Object {
+          $name = $_.Name
+          $value = $_.Value
+          Write-Host "Setting environment variable: $name=$value"
+          $env:$name = $value
+        }
+        
+    - name: Print environment variables
+      run: |
+        Get-ChildItem Env: | Sort-Object Name | Format-Table Name, Value
